@@ -40,9 +40,7 @@ class EksisozlukBaslikSpider(Spider):
 
         # Sozluk sayfalamayi javascript ile yapiyor, dolayisi ile sayfa linkini XPath ile alamiyoruz ancak kacinci
         # sayfada oldugumuz ve son sayfa html icerisinde yer aliyor. Bu bilgileri kullanarak crawl edilecek bir
-        # sonraki sayfanin adresini belirle ve dondur.
-        #
-        # SSG degistirmez umarim :(
+        # sonraki sayfanin adresini belirle. SSG degistirmez umarim :(
         current_page = int(response.xpath('//*[@id="topic"]/div[2]/@data-currentpage').extract()[0])
         page_count = int(response.xpath('//*[@id="topic"]/div[2]/@data-pagecount').extract()[0])
 

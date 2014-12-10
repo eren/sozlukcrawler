@@ -8,20 +8,20 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
 
-BOT_NAME = 'sozlukscrapy'
+BOT_NAME = 'sozlukcrawl'
 
 LOG_ENABLED = True
 LOG_LEVEL = 'DEBUG'
 
-SPIDER_MODULES = ['sozlukscrapy.spiders']
-NEWSPIDER_MODULE = 'sozlukscrapy.spiders'
+SPIDER_MODULES = ['sozlukcrawl.spiders']
+NEWSPIDER_MODULE = 'sozlukcrawl.spiders'
 
 RETRY_ENABLED = False
 COOKIES_ENABLED = False
 
 DOWNLOADER_MIDDLEWARES = {
-    'sozlukscrapy.middleware.RandomUserAgent': 1,
-    'sozlukscrapy.middleware.ErrorMonkeyMiddleware': 2,
+    'sozlukcrawl.middleware.RandomUserAgent': 1,
+    'sozlukcrawl.middleware.ErrorMonkeyMiddleware': 2,
 }
 
 USER_AGENTS = [

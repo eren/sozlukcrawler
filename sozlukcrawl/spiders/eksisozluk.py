@@ -6,7 +6,7 @@ from scrapy.http import Request
 from scrapy.exceptions import CloseSpider
 
 from ..items import Girdi
-
+from ..utils import is_request_seen
 
 class EksisozlukBaslikSpider(Spider):
     name = "eksisozluk"
@@ -17,8 +17,11 @@ class EksisozlukBaslikSpider(Spider):
         if 'urls' not in kwargs:
             raise CloseSpider('URL should be given to scrape')
 
-        self.start_urls = kwargs['urls'].split(',')
+        self.urls = kwargs['urls'].split(',')
         self.allowed_domains = ["eksisozluk.com"]
+
+    def start_requests(self):
+        return [Request(i) for i in self.urls if not is_request_seen(Request(i))]
 
     def parse(self, response):
         self.log("PARSING: %s" % response.request.url, level=log.INFO)

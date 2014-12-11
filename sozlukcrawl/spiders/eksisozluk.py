@@ -21,6 +21,9 @@ class EksisozlukBaslikSpider(Spider):
         self.allowed_domains = ["eksisozluk.com"]
 
     def start_requests(self):
+        self.log('Eliminating already seen web pages. If you think crawler is not working '
+                 'please check "seen" table in the database', level=log.WARNING)
+
         return [Request(i) for i in self.urls if not is_request_seen(Request(i))]
 
     def parse(self, response):

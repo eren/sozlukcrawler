@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from scrapy import log
-from .models import session, Girdi, Engine, create_tables
+from .models import session, Girdi, create_tables
 
 
 class DatabasePipeline(object):
     def __init__(self):
-        create_tables(Engine)
+        create_tables()
     
     def process_item(self, item, spider):
         """

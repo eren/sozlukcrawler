@@ -8,33 +8,14 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
-
-
-def db_connect():
-    """
-    Proje ayarlarina gore SQLAlchemy engine'i dondur.
-
-    :return: Proje spesifik veritabani motoru
-    :rtype: SQLAlchemy Engine
-    """
-    project_setting = get_project_settings()
-
-    return create_engine(URL(**project_setting['DATABASE']))
-
-
-def create_tables(current_engine):
-    """
-    Modelde tanimlanan butun tablolari olustur
-
-    :param current_engine: SQLAlchemy motoru
-    :type current_engine: SQLAlchemy engine
-    """
-    Base.metadata.create_all(current_engine)
-
-Engine = db_connect()
+Engine = create_engine(URL(**get_project_settings()['DATABASE']))
 
 __SessionMaker = sessionmaker(bind=Engine)
 session = __SessionMaker()
+
+
+def create_tables():
+    Base.metadata.create_all(Engine)
 
 
 class Girdi(Base):

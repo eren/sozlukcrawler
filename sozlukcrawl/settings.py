@@ -8,10 +8,19 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
 
-BOT_NAME = 'sozlukcrawl'
+DATABASE = {
+    'drivername': 'mysql',
+    'host': 'localhost',
+    'port': '3306',
+    'username': 'sozlukcrawl',
+    'password': 'sozlukcrawl',
+    'database': 'sozlukcrawl'
+}
 
 LOG_ENABLED = True
 LOG_LEVEL = 'DEBUG'
+
+BOT_NAME = 'sozlukcrawl'
 
 SPIDER_MODULES = ['sozlukcrawl.spiders']
 NEWSPIDER_MODULE = 'sozlukcrawl.spiders'
@@ -48,12 +57,3 @@ USER_AGENTS = [
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.20 (KHTML, like Gecko) Chrome/19.0.1036.7 Safari/535.20",
     "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52",
 ]
-
-DATABASE = {
-    'drivername': 'mysql',
-    'host': 'localhost',
-    'port': '3306',
-    'username': 'sozlukcrawl',
-    'password': 'sozlukcrawl',
-    'database': 'sozlukcrawl'
-}

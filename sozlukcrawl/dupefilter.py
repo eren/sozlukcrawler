@@ -3,12 +3,11 @@ __author__ = 'Eren Turkay <turkay.eren@gmail.com>'
 from datetime import datetime
 
 from scrapy.dupefilter import BaseDupeFilter
-from scrapy.utils.request import request_fingerprint
 from scrapy import log
-
-from sqlalchemy import exists
+from scrapy.utils.request import request_fingerprint
 
 from .models import Seen, session, create_tables
+from .utils import is_request_seen
 
 
 class DatabaseDupeFilter(BaseDupeFilter):
@@ -16,10 +15,10 @@ class DatabaseDupeFilter(BaseDupeFilter):
         create_tables()
 
     def request_seen(self, request):
-        is_seen = session.query(exists().where(Seen.fingerprint == request_fingerprint(request))).scalar()
+        is_seen = is_request_seen(request)
 
         if not is_seen:
-            log.msg('[seen] New URL: %s. Adding it to database' % request.url, log.INFO)
+            log.msg('New URL: %s. Adding it to seen database' % request.url, log.INFO)
             seen = Seen(fingerprint=request_fingerprint(request),
                         url=request.url,
                         last_crawl_time=datetime.now())

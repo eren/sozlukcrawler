@@ -31,10 +31,15 @@ Veriler (girdiler) HTML taglerinden ayrılmış ve saf yazı halinde veritabanı
 * Girdi numarası
 * Başlık numarası
 
+
+
+![Örnek](http://i.imgur.com/LSdDONX.png)
+
+
 Kurulum
 -------
 Sisteminizde öncesinde virtualenv paketinin olduğundan emin olun. Eğer yoksa başlamadan önce
-`pip install virtualenv` ile kurun. Aşağıdaki açıklayıcı komutlar ile projeyi kurabilirsiniz. Kullanım
+`pip install virtualenv` ile kurun. Aşağıdaki açıklayıcı komutlar ile projeyi kurun. Kullanım
 için bir sonraki bölüme bakın.
 
 

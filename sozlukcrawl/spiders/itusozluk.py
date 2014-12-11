@@ -63,6 +63,6 @@ class ItusozlukBaslikSpider(Spider):
         page_count = int(response.xpath('//a[@rel="last"]')[0].xpath('text()').extract()[0])
 
         next_page = current_page + 1
-        # if page_count >= next_page:
-        if current_page < 2:
+        if page_count >= next_page:
+        # if current_page < 2:
             yield Request('%s/sayfa/%s' % (current_url, next_page))

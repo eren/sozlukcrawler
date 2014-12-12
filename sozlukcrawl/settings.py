@@ -8,6 +8,37 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
 
+# MySQL, PostgreSQL, veya SQLite kullanilabilir. ORM olarak SQLAlchemy kullanildigi
+# icin SQLAlchemy'nin destekledigi butun engine ayarlarini kullanabilirsiniz.
+#
+# Herhangi bir veritabani kurmak, kullanici olusturmak istemiyorsaniz SQLite ile
+# tek dosyaya yazabilir ve okuyabilirsiniz. Bunun icin asagidaki satirlarin yorumunu
+# kaldirin.
+#
+# SQLite Ayari
+# ============
+# DATABASE = {
+#     'drivername': 'sqlite',
+#     'database': 'db.sqlite'
+# }
+#
+#
+# PostgreSQL ve MySQL kullanmak istiyorsaniz ne yaptiginizi bildiginizi varsayarak veritabani ve
+# kullanici olusturmayi pas geciyorum.
+#
+# PostgreSQL
+# ==========
+# DATABASE = {
+#     'drivername': 'psycopg2',
+#     'host': 'localhost',
+#     'port': '5432',
+#     'username': 'sozlukcrawl',
+#     'password': 'sozlukcrawl',
+#     'database': 'sozlukcrawl'
+# }
+
+
+# MySQL
 DATABASE = {
     'drivername': 'mysql',
     'host': 'localhost',

@@ -1,26 +1,27 @@
 # Sözlük Crawler
 
 
-Ekşisözlük, itüsözlük, uludağsözlük gibi popüler sözlüklerden belirtilen başlıklardaki
-tüm girdileri alıp, veritabanına yazan crawler. Akademik amaçlar ile kullanılmak üzere
-geliştirildi ve dolayısıyla bütün sözlüğü crawl etme veya yeni bir google olma
+Ekşisözlük, itüsözlük, uludağsözlük gibi popüler sözlüklerden belirtilen **başlıklardaki
+tüm girdileri** alıp, veritabanına yazan crawler. Akademik amaçlar ile kullanılmak üzere
+geliştirildi ve dolayısıyla bütün sözlüğü taramak veya yeni bir google olma
 gibi bir amacı yoktur.
 
 Temel olarak bu proje, bazı popüler başlıklarda yazılan girdilerde herhangi bir örüntü (pattern) olup
-olmadığı sorusunu cevaplamak üzere çıktı. Örneğin 'Recep Tayyip Erdoğan' veya 'Türkiye'den
-siktir olup gitmek' başlığına hangi ay/yıl daha fazla girdi yazıldı, insanlar en çok hangi
+olmadığı sorusunu cevaplamak üzere çıktı. Örneğin ``Recep Tayyip Erdoğan`` veya ``Türkiye'den
+siktir olup gitmek`` başlığına hangi ay/yıl daha fazla girdi yazıldı, insanlar en çok hangi
 kelimeleri kullandı, en çok girdi yazılan günlerin başka olaylar ile bağlantısı var mı gibi
 sorular aklıma gelen birkaç örnek. Veri ortaya çıktıktan sonra üzerine başka analizler
 yapmak da mümkün. Eğer ilginizi çekerse analiz fikirlerinizi e-posta atmaktan veya pull-request
 yapmaktan çekinmeyin.
 
-Şunu da not etmem gerekir ki lütfen bokunu çıkarmadan kullanın. Bütün sözlüğü download edeceğim,
-istekler arasında hiç beklemeyeceğim ve DoS yapacağım diyenler varsa: sen kullanma ulan ayı!
+Şunu da not etmem gerekir ki lütfen **bokunu çıkarmadan** kullanın. Bütün sözlüğü download edeceğim,
+istekler arasında hiç beklemeyeceğim ve bilerek/bilmeyerek [DoS](https://en.wikipedia.org/wiki/Denial-of-service_attack) yapacağım diyenler varsa: **sen kullanma ulan ayı!**
 
 Anahtar kelimeler: sözlük, crawl, scrape, ekşi, ekşisözlük, itüsözlük
 
 # İçindekiler
-* [Crawl Edilen Alanlar](#crawl-edilen-alanlar)
+* [Desteklenen Sözlükler](#desteklenen-sözlükler)
+* [Taranan Alanlar](#taranan-alanlar)
 * [Kurulum](#kurulum)
 * [Veritabanı Ayarları](#veritabanı-ayarları)
 	* [SQLite](#sqlite)
@@ -28,7 +29,11 @@ Anahtar kelimeler: sözlük, crawl, scrape, ekşi, ekşisözlük, itüsözlük
 	* [PostgreSQL](#postgresql)
 * [Kullanım](#kullanım)
 
-## Crawl Edilen Alanlar
+## Desteklenen Sözlükler
+* [Ekşisözlük](https://www.eksisozluk.com/)
+* [İtüsözlük](https://www.itusozluk.com/)
+
+## Taranan Alanlar
 Veriler (girdiler) HTML taglerinden ayrılmış ve saf yazı halinde veritabanına eklenmekte. Bu alanlar şunlar:
 
 * Girdinin yazıldığı başlık
@@ -71,7 +76,7 @@ pip install -r requirements.txt
 Kurulum yaptıktan sonra `sozlukcrawl/settings.py` dosyasından proje ayarlarını düzenleyin.
 
 ## Veritabanı Ayarları
-Proje ORM olarak SQLAlchemy kullanamkta, doğal olarak SQLAlchemy'nin desteklediği bütün
+Proje ORM olarak SQLAlchemy kullanmakta, doğal olarak SQLAlchemy'nin desteklediği bütün
 veritabanları crawl edilen girdileri saklamak için tutulabilir. Geliştirme ortamında MySQL
 öntanımlı olarak kullanılmakta ancak isteğinize göre aşağıdaki veritabanlarını kullanabilirsiniz.
 

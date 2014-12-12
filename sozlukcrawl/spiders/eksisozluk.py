@@ -12,10 +12,11 @@ from ..items import Girdi
 
 class EksisozlukBaslikSpider(GenericSozlukSpider):
     name = 'eksisozluk'
-    allowed_domains = ['eksisozluk.com']
 
     def __init__(self, **kwargs):
         super(EksisozlukBaslikSpider, self).__init__(**kwargs)
+
+        self.allowed_domaisn = ['eksisozluk.com']
 
     def parse(self, response):
         self.log("PARSING: %s" % response.request.url, level=log.INFO)

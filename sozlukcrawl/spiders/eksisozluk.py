@@ -4,6 +4,8 @@ __author__ = 'Eren Turkay <turkay.eren@gmail.com>'
 from scrapy import log
 from scrapy.http import Request
 
+from datetime import datetime
+
 from . import GenericSozlukSpider
 from ..items import Girdi
 
@@ -21,8 +23,7 @@ class EksisozlukBaslikSpider(GenericSozlukSpider):
             girdi_id = sel.xpath('./footer/@data-id').extract()[0]
             baslik_id = response.xpath('//*[@id="title"]/a/@href').re(r'--(\d*)')[0]
             baslik = response.xpath('//*[@id="title"]/a/span/text()').extract()[0]
-            date = sel.xpath('./footer/div[2]/span/time/text()').re(r'\d{2}[.]\d{2}[.]\d{4}')[0]
-            time = sel.xpath('./footer/div[2]/span/time/text()').re(r'\d{2}[:]\d{2}')[0]
+            date = sel.xpath('./footer/div[2]/span/time/text()').re(r'\d{2}[.]\d{2}[.]\d{4} \d{2}[:]\d{2}')[0]
             text = sel.xpath('string(./div)').extract()[0]
             nick = sel.xpath('./footer/div[2]/address/a/span/text()').extract()[0]
 
@@ -31,14 +32,7 @@ class EksisozlukBaslikSpider(GenericSozlukSpider):
             item['baslik'] = baslik
             item['girdi_id'] = girdi_id
             item['baslik_id'] = baslik_id
-
-            # GG.AA.YYYY formatini YYYY.AA.GG formatina cevir. Veritabani bu formatta bekliyor.
-            # DateTime modulu kullanilarak da yapilabilir ama ugrasmayalim simdi.
-            reverse_date = date.split('.')
-            reverse_date.reverse()
-            item['date'] = '.'.join(reverse_date)
-
-            item['time'] = time
+            item['datetime'] = datetime.strptime(date, '%d.%m.%Y %H:%M')
             item['text'] = text
             item['nick'] = nick
 

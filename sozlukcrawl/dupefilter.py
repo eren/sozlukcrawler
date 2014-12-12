@@ -18,7 +18,7 @@ class DatabaseDupeFilter(BaseDupeFilter):
         is_seen = is_request_seen(request)
 
         if not is_seen:
-            log.msg('New URL: %s. Adding it to seen database' % request.url, log.INFO)
+            log.msg('New URL: %s. Adding it to seen database' % request.url, log.DEBUG)
             seen = Seen(fingerprint=request_fingerprint(request),
                         url=request.url,
                         last_crawl_time=datetime.now())
@@ -31,6 +31,6 @@ class DatabaseDupeFilter(BaseDupeFilter):
             finally:
                 session.close()
         else:
-            log.msg('[seen] "%s" is seen. Skipping.' % request.url)
+            log.msg('[seen] "%s" is seen. Skipping.' % request.url, log.WARNING)
 
         return is_seen

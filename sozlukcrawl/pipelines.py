@@ -22,7 +22,7 @@ class DatabasePipeline(object):
         """
         log.msg('[%s] PROCESSING ITEM [item no: %s, baslik: %s]' %
                 (spider.name, item['girdi_id'], item['baslik']),
-                level=log.INFO)
+                level=log.DEBUG)
 
         girdi = Girdi(**item)
         try:

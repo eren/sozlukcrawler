@@ -32,8 +32,7 @@ Veriler (girdiler) HTML taglerinden ayrılmış ve saf yazı halinde veritabanı
 * Başlık numarası
 
 
-
-![Örnek](http://i.imgur.com/LSdDONX.png)
+![Örnek](http://i.imgur.com/0jwqw3O.png)
 
 
 Kurulum

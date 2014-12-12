@@ -20,13 +20,13 @@ istekler arasında hiç beklemeyeceğim ve DoS yapacağım diyenler varsa: sen k
 Anahtar kelimeler: sözlük, crawl, scrape, ekşi, ekşisözlük, itüsözlük
 
 # İçindekiler
-* [Crawl Edilen Alanlar](#)
-* [Kurulum](#)
-* [Veritabanı Ayarları](#)
-	* [SQLIte](#)
-	* [MySQL](#)
-	* [PostgreSQL](#)
-* [Kullanım](#)
+* [Crawl Edilen Alanlar](#crawl-edilen-alanlar)
+* [Kurulum](#kurulum)
+* [Veritabanı Ayarları](#veritabanı-ayarları)
+	* [SQLIte](#sqlite)
+	* [MySQL](#mysql)
+	* [PostgreSQL](#postgresql)
+* [Kullanım](#kullanım)
 
 ## Crawl Edilen Alanlar
 Veriler (girdiler) HTML taglerinden ayrılmış ve saf yazı halinde veritabanına eklenmekte. Bu alanlar şunlar:

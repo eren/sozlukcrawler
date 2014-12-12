@@ -48,6 +48,6 @@ class EksisozlukBaslikSpider(GenericSozlukSpider):
         current_url = response.request.url.split('?p')[0]
 
         next_page = current_page + 1
-        # if page_count >= next_page:
-        if current_page < 1:
+        if page_count >= next_page:
+        # if current_page < 1:
             yield Request('%s?p=%s' % (current_url, next_page))

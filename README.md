@@ -1,5 +1,5 @@
-Sözlük Crawler
-==============
+# Sözlük Crawler
+
 
 Ekşisözlük, itüsözlük, uludağsözlük gibi popüler sözlüklerden belirtilen başlıklardaki
 tüm girdileri alıp, veritabanına yazan crawler. Akademik amaçlar ile kullanılmak üzere
@@ -19,8 +19,16 @@ istekler arasında hiç beklemeyeceğim ve DoS yapacağım diyenler varsa: sen k
 
 Anahtar kelimeler: sözlük, crawl, scrape, ekşi, ekşisözlük, itüsözlük
 
-Veritabanına Eklenen Alanlar
-----------------------------
+# İçindekiler
+* [Crawl Edilen Alanlar](#)
+* [Kurulum](#)
+* [Veritabanı Ayarları](#)
+	* [SQLIte](#)
+	* [MySQL](#)
+	* [PostgreSQL](#)
+* [Kullanım](#)
+
+## Crawl Edilen Alanlar
 Veriler (girdiler) HTML taglerinden ayrılmış ve saf yazı halinde veritabanına eklenmekte. Bu alanlar şunlar:
 
 * Girdinin yazıldığı başlık
@@ -35,8 +43,7 @@ Veriler (girdiler) HTML taglerinden ayrılmış ve saf yazı halinde veritabanı
 ![Örnek](http://i.imgur.com/0jwqw3O.png)
 
 
-Kurulum
--------
+## Kurulum
 Sisteminizde öncesinde virtualenv paketinin olduğundan emin olun. Eğer yoksa başlamadan önce
 `pip install virtualenv` ile kurun. Aşağıdaki açıklayıcı komutlar ile projeyi kurun. Kullanım
 için bir sonraki bölüme bakın.
@@ -59,6 +66,59 @@ cd sozlukcrawler
 
 # bagimliliklari yukle
 pip install -r requirements.txt
+```
+
+Kurulum yaptıktan sonra `sozlukcrawl/settings.py` dosyasından proje ayarlarını düzenleyin.
+
+## Veritabanı Ayarları
+Proje ORM olarak SQLAlchemy kullanamkta, doğal olarak SQLAlchemy'nin desteklediği bütün
+veritabanları crawl edilen girdileri saklamak için tutulabilir. Geliştirme ortamında MySQL
+öntanımlı olarak kullanılmakta ancak isteğinize göre aşağıdaki veritabanlarını kullanabilirsiniz.
+
+
+### SQLite
+Herhangi bir veritabanı sunucusu kurmak istemiyor ve girdileri dosyaya yazmak istiyorsanız
+SQLite sürücüsünü kullanabilirsiniz. Bunun için `settings.py` dosyasında açıklamaları bulunan
+satır yorumlarını kaldırmanız yeterli.
+
+```
+DATABASE = {
+    'drivername': 'sqlite',
+    'database': 'db.sqlite'
+}
+```
+
+### MySQL
+MySQL sunucunuzda gerekli kullanıcıyı, parolayı, ve veritabanını ekledikten sonra aşağıdaki
+ayarlar ile MySQL kullanımını etkinleştirebilirsiniz.
+
+```
+DATABASE = {
+    'drivername': 'mysql',
+    'host': 'localhost',
+    'port': '3306',
+    'username': 'sozlukcrawl',
+    'password': 'sozlukcrawl',
+    'database': 'sozlukcrawl'
+}
+```
+
+### PostgreSQL
+Aynı şekilde kullanıcı adını ve veritabanını ayarladıktan sonra aşağıdaki ayarlar ile
+kullanabilirsiniz.
+
+**UYARI**: PostgreSQL kullanmaya başlamadan önce `psycopg2`paketinin kurulu olması gerekmektedir.
+Bunu `pip install psycopg2`ile kurunuz.
+
+```
+DATABASE = {
+    'drivername': 'psycopg2',
+    'host': 'localhost',
+    'port': '5432',
+    'username': 'sozlukcrawl',
+    'password': 'sozlukcrawl',
+    'database': 'sozlukcrawl'
+}
 ```
 
 Kullanım

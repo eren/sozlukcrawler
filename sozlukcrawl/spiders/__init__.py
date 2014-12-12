@@ -1,7 +1,4 @@
-# This package will contain the spiders of your Scrapy project
-#
-# Please refer to the documentation for information on how to create and manage
-# your spiders.
+# -*- coding: utf-8 -*-
 
 from scrapy import Spider
 from scrapy import log

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+__author__ = 'Eren Turkay <turkay.eren@gmail.com>'
 
 from scrapy import log
 from scrapy.http import Request

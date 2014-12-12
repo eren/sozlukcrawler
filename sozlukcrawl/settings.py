@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for sozlukscrapy project
+# Scrapy settings for sozlukcrawl project
 #
 # For simplicity, this file contains only the most important settings by
 # default. All the other settings are documented here:

@@ -2,7 +2,7 @@ __author__ = 'Eren Turkay <turkay.eren@gmail.com>'
 
 from scrapy.utils.project import get_project_settings
 
-from sqlalchemy import create_engine, Column, Integer, String, Date, Time, Text, DateTime
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
 from sqlalchemy.engine.url import URL
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -38,8 +38,7 @@ class Girdi(Base):
     # TODO: baslik icin normalization yap, her girdi eklendiginde tekrar etme.
     baslik = Column('baslik', String(255))
     text = Column('text', Text)
-    date = Column('date', Date)
-    time = Column('time', Time)
+    datetime = Column('datetime', DateTime)
     nick = Column('nick', String(255))
 
     def __repr__(self):

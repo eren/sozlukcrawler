@@ -10,6 +10,5 @@ class Girdi(scrapy.Item):
     baslik_id = scrapy.Field()
     baslik = scrapy.Field()
     text = scrapy.Field()
-    date = scrapy.Field()
-    time = scrapy.Field()
+    datetime = scrapy.Field()
     nick = scrapy.Field()

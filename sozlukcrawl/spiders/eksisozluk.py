@@ -1,30 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from scrapy import Spider
 from scrapy import log
 from scrapy.http import Request
-from scrapy.exceptions import CloseSpider
 
+from . import GenericSozlukSpider
 from ..items import Girdi
-from ..utils import is_request_seen
 
-class EksisozlukBaslikSpider(Spider):
-    name = "eksisozluk"
+
+class EksisozlukBaslikSpider(GenericSozlukSpider):
+    name = 'eksisozluk'
+    allowed_domains = ['eksisozluk.com']
 
     def __init__(self, **kwargs):
         super(EksisozlukBaslikSpider, self).__init__(**kwargs)
-
-        if 'urls' not in kwargs:
-            raise CloseSpider('URL should be given to scrape')
-
-        self.urls = kwargs['urls'].split(',')
-        self.allowed_domains = ["eksisozluk.com"]
-
-    def start_requests(self):
-        self.log('Eliminating already seen web pages. If you think crawler is not working '
-                 'please check "seen" table in the database', level=log.WARNING)
-
-        return [Request(i) for i in self.urls if not is_request_seen(Request(i))]
 
     def parse(self, response):
         self.log("PARSING: %s" % response.request.url, level=log.INFO)
@@ -64,6 +52,6 @@ class EksisozlukBaslikSpider(Spider):
         current_url = response.request.url.split('?p')[0]
 
         next_page = current_page + 1
-        if page_count >= next_page:
-        # if current_page < 1:
+        # if page_count >= next_page:
+        if current_page < 1:
             yield Request('%s?p=%s' % (current_url, next_page))

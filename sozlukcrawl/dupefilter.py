@@ -31,6 +31,6 @@ class DatabaseDupeFilter(BaseDupeFilter):
             finally:
                 session.close()
         else:
-            log.msg('[seen] "%s" is seen. Skipping.' % request.url, log.WARNING)
+            log.msg('[seen] "%s" is seen. Skipping.' % request.url, log.INFO)
 
         return is_seen

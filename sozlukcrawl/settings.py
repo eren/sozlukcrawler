@@ -89,5 +89,5 @@ USER_AGENTS = [
     "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52",
 ]
 
-DOWNLOAD_DELAY = 1.5
+DOWNLOAD_DELAY = 0.25
 RANDOMIZE_DOWNLOAD_DELAY = True

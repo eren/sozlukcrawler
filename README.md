@@ -23,7 +23,7 @@ Anahtar kelimeler: sözlük, crawl, scrape, ekşi, ekşisözlük, itüsözlük
 * [Crawl Edilen Alanlar](#crawl-edilen-alanlar)
 * [Kurulum](#kurulum)
 * [Veritabanı Ayarları](#veritabanı-ayarları)
-	* [SQLIte](#sqlite)
+	* [SQLite](#sqlite)
 	* [MySQL](#mysql)
 	* [PostgreSQL](#postgresql)
 * [Kullanım](#kullanım)

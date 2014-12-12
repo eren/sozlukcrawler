@@ -32,6 +32,7 @@ Anahtar kelimeler: sözlük, crawl, scrape, ekşi, ekşisözlük, itüsözlük
 ## Desteklenen Sözlükler
 * [Ekşisözlük](https://www.eksisozluk.com/)
 * [İtüsözlük](https://www.itusozluk.com/)
+* [Uludağsözlük](https://www.uldagsozluk.com/)
 
 ## Taranan Alanlar
 Veriler (girdiler) HTML taglerinden ayrılmış ve saf yazı halinde veritabanına eklenmekte. Bu alanlar şunlar:

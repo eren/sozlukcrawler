@@ -18,10 +18,10 @@ class GenericSozlukSpider(Spider):
     def __init__(self, **kwargs):
         super(GenericSozlukSpider, self).__init__(**kwargs)
 
-        if 'urls' not in kwargs:
-            raise CloseSpider('URL should be given to scrape')
+        if 'baslik' not in kwargs:
+            raise CloseSpider('Baslik should be given to scrape')
 
-        self.urls = kwargs['urls'].split(',')
+        self.urls = kwargs['baslik'].split(',')
         self.allowed_domains = []
 
     def start_requests(self):

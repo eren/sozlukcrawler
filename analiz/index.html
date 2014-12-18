@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sözlük Crawler - Analiz - Eren Türkay</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.paper.min.css" rel="stylesheet">
+
+      <style>
+          p {
+              font-size: 1.2em;
+              line-height: 1.4em;
+          }
+      </style>
+  </head>
+
+  <body>
+
+    <div class="container col-md-8 col-md-offset-2">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../">Sözlük Crawler</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="../">Ana Sayfa</a></li>
+              <li class="active"><a href="#">Analiz</a></li>
+            </ul>
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Sözlük Analizi</h2>
+                <p>
+                    Bu sayfada değişik sözlüklerden bazı başlıkların analizi yer almaktadır.
+                    Halihazırda veritabanına yazılan verilerden yazım sıklığı, tarihlere göre girdi sayısı gibi bilgiler verilmektedir.
+                    Bu veriler üzerinde çok daha başka analizler yapmak mümkün. Eğer ilgilenirseniz iletişim adresinden benimle bağlantıya
+                    geçebilir ya da <a href="https://github.com/eren/sozlukcrawler">github proje sayfası</a> üzerinden issue açabilirsiniz.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Recep Tayyip Erdoğan Başlığı</h3>
+            <hr/>
+            <div class="col-md-12" id="container">
+            </div>
+        </div>
+
+        <footer>
+        <div class="row">
+          <div class="col-lg-12">
+              <hr/>
+
+              <p>Sözlük Crawler kodu (bu sayfa da dahil olmak üzere) GPL-2 lisanslıdır. Herhangi bir ticari faaliyet için kullanılamaz, kodu kapatılamaz, satılamaz.</p>
+            <p>Theme by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
+            <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+
+          </div>
+        </div>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <script>
+ $(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: 'Recep Tayyip Erdoğan'
+        },
+        subtitle: {
+            text: 'Yıllara göre sözlüklerdeki girdi sayısı'
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                format: '{value:%Y}',
+                rotation: 45,
+                align: 'left'
+            },
+            title: {
+                text: 'Yıl'
+            }
+        },
+        yAxis: {
+            title: {
+                text: 'Girdi sayısı'
+            },
+            min: 0
+        },
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br>',
+            pointFormat: '{point.x:%Y}: {point.y} girdi'
+        },
+
+        series: [{
+            name: 'Ekşisözlük',
+            // Define the data points. All series have a dummy year
+            // of 1970/71 in order to be compared on the same x axis. Note
+            // that in JavaScript, months start at 0 for January, 1 for February etc.
+            data: [
+                [Date.UTC(1970,  9, 27), 0   ],
+                [Date.UTC(1970, 10, 10), 0.6 ],
+                [Date.UTC(1970, 10, 18), 0.7 ],
+                [Date.UTC(1970, 11,  2), 0.8 ],
+                [Date.UTC(1970, 11,  9), 0.6 ],
+                [Date.UTC(1970, 11, 16), 0.6 ],
+                [Date.UTC(1970, 11, 28), 0.67],
+                [Date.UTC(1971,  0,  1), 0.81],
+                [Date.UTC(1971,  0,  8), 0.78],
+                [Date.UTC(1971,  0, 12), 0.98],
+                [Date.UTC(1971,  0, 27), 1.84],
+                [Date.UTC(1971,  1, 10), 1.80],
+                [Date.UTC(1971,  1, 18), 1.80],
+                [Date.UTC(1971,  1, 24), 1.92],
+                [Date.UTC(1971,  2,  4), 2.49],
+                [Date.UTC(1971,  2, 11), 2.79],
+                [Date.UTC(1971,  2, 15), 2.73],
+                [Date.UTC(1971,  2, 25), 2.61],
+                [Date.UTC(1971,  3,  2), 2.76],
+                [Date.UTC(1971,  3,  6), 2.82],
+                [Date.UTC(1971,  3, 13), 2.8 ],
+                [Date.UTC(1971,  4,  3), 2.1 ],
+                [Date.UTC(1971,  4, 26), 1.1 ],
+                [Date.UTC(1971,  5,  9), 0.25],
+                [Date.UTC(1971,  5, 12), 0   ]
+            ]
+        }, {
+            name: 'İtüsözlük',
+            data: [
+                [Date.UTC(1970,  9, 18), 0   ],
+                [Date.UTC(1970,  9, 26), 0.2 ],
+                [Date.UTC(1970, 11,  1), 0.47],
+                [Date.UTC(1970, 11, 11), 0.55],
+                [Date.UTC(1970, 11, 25), 1.38],
+                [Date.UTC(1971,  0,  8), 1.38],
+                [Date.UTC(1971,  0, 15), 1.38],
+                [Date.UTC(1971,  1,  1), 1.38],
+                [Date.UTC(1971,  1,  8), 1.48],
+                [Date.UTC(1971,  1, 21), 1.5 ],
+                [Date.UTC(1971,  2, 12), 1.89],
+                [Date.UTC(1971,  2, 25), 2.0 ],
+                [Date.UTC(1971,  3,  4), 1.94],
+                [Date.UTC(1971,  3,  9), 1.91],
+                [Date.UTC(1971,  3, 13), 1.75],
+                [Date.UTC(1971,  3, 19), 1.6 ],
+                [Date.UTC(1971,  4, 25), 0.6 ],
+                [Date.UTC(1971,  4, 31), 0.35],
+                [Date.UTC(1971,  5,  7), 0   ]
+            ]
+        }, {
+            name: 'Uludağsözlük',
+            data: [
+                [Date.UTC(1970,  9,  9), 0   ],
+                [Date.UTC(1970,  9, 14), 0.15],
+                [Date.UTC(1970, 10, 28), 0.35],
+                [Date.UTC(1970, 11, 12), 0.46],
+                [Date.UTC(1971,  0,  1), 0.59],
+                [Date.UTC(1971,  0, 24), 0.58],
+                [Date.UTC(1971,  1,  1), 0.62],
+                [Date.UTC(1971,  1,  7), 0.65],
+                [Date.UTC(1971,  1, 23), 0.77],
+                [Date.UTC(1971,  2,  8), 0.77],
+                [Date.UTC(1971,  2, 14), 0.79],
+                [Date.UTC(1971,  2, 24), 0.86],
+                [Date.UTC(1971,  3,  4), 0.8 ],
+                [Date.UTC(1971,  3, 18), 0.94],
+                [Date.UTC(1971,  3, 24), 0.9 ],
+                [Date.UTC(1971,  4, 16), 0.39],
+                [Date.UTC(1971,  4, 21), 0   ]
+            ]
+        }]
+    });
+});
+    </script>
+  </body>
+</html>

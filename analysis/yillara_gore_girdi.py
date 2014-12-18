@@ -40,6 +40,15 @@ class Analysis(object):
 
         return out
 
+    def total_entries(self):
+        sql = text("SELECT COUNT(*) FROM girdiler WHERE source=:s AND baslik_id=:b")
+        result = session.execute(sql, params=dict(s=self.source, b=self.baslik_id)).fetchone()
+
+        out = "// toplam girdi sayisi\n"
+        out += "[%s, %s]" % (self.source, int(result[0]))
+
+        return out
+
     def to_js(self, result):
         out = '// %s icin yillara gore girdi dagilimi\n' % self.source
         for year, number in result:
@@ -58,10 +67,10 @@ if __name__ == '__main__':
                         action='store', type=str,
                         help='Kaynak (ornegin: eksisozluk, itusozluk, uludagsozluk)',
                         required=True)
-    parser.add_argument('-o', '--output',
-                        action='store', type=str,
-                        help='Cikti dosyasi. (ornegin: data.js). Eger verilmezse konsola yazar',
-                        required=False)
+    # parser.add_argument('-o', '--output',
+    #                     action='store', type=str,
+    #                     help='Cikti dosyasi. (ornegin: data.js). Eger verilmezse konsola yazar',
+    #                     required=False)
     # parser.add_argument('-d', '--debug',
     #                     action='store', type=bool,
     #                     default='False',
@@ -79,3 +88,4 @@ if __name__ == '__main__':
     analysis = Analysis(args.source, args.baslik_id)
     r = analysis.entry_numbers_in_years()
     print analysis.to_js(r)
+    print analysis.total_entries()

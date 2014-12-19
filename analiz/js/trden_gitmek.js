@@ -13,7 +13,7 @@ $(function () {
             text: 'Yıllara Göre Girdi Dağılımı'
         },
         subtitle: {
-            text: "Türkiye'den Siktir Olup Gitmek"
+            text: "Türkiye'den Siktir Olup Gitmek (Toplam girdi: <b>3304</b>)"
         },
         xAxis: {
             type: 'datetime',
@@ -72,7 +72,7 @@ $(function () {
             text: 'Tüm Zamanda Toplam Girdi Sayısı'
         },
         subtitle: {
-            text: "Türkiye'den Siktir Olup Gitmek (Toplam: 3304)"
+            text: "Türkiye'den Siktir Olup Gitmek (Toplam girdi: <b>3304</b>)"
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.y}</b>'

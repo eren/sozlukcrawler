@@ -14,7 +14,7 @@
             text: 'Yıllara Göre Girdi Dağılımı'
         },
         subtitle: {
-            text: "Partiler. (Toplam girdi: 13.759)"
+            text: "Kaynak: ekşisözlük (Toplam girdi: <b>13.759</b>)"
         },
         xAxis: {
             type: 'datetime',
@@ -108,7 +108,7 @@
             text: 'Partilerin Toplam Girdisi'
         },
         subtitle: {
-            text: "Kaynak: ekşisözlük (Toplam: 13.759)"
+            text: "Kaynak: ekşisözlük (Toplam girdi: <b>13.759</b>)"
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.y}</b>'

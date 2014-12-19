@@ -14,7 +14,7 @@
             text: 'Tüm Zamanda Toplam Girdi Sayısı'
         },
         subtitle: {
-            text: 'Recep Tayyip Erdoğan (Toplam: 170.602)'
+            text: 'Recep Tayyip Erdoğan (Toplam girdi: <b>170.602</b>)'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.y}</b>'
@@ -53,7 +53,7 @@
             text: 'Yıllara Göre Girdi Dağılımı'
         },
         subtitle: {
-            text: 'Recep Tayyip Erdoğan'
+            text: 'Recep Tayyip Erdoğan (Toplam girdi: <b>170.602</b>)'
         },
         xAxis: {
             type: 'datetime',

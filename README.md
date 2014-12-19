@@ -1,6 +1,5 @@
 # Sözlük Crawler
 
-
 Ekşisözlük, itüsözlük, uludağsözlük gibi popüler sözlüklerden belirtilen **başlıklardaki
 tüm girdileri** alıp, veritabanına yazan crawler. Akademik amaçlar ile kullanılmak üzere
 geliştirildi ve dolayısıyla bütün sözlüğü taramak veya yeni bir google olma
@@ -127,5 +126,22 @@ DATABASE = {
 }
 ```
 
-Kullanım
---------
+## Kullanım
+
+Ekşi, İtü veya Uludağsözlükte ilgilendiğiniz başlığın kök linkini
+(sayfalama olmaksızın, birinci sayfa) crawler'a vermeniz yeterlidir. Aşağıdaki komutlar
+ile crawler'ı başlatabilirsiniz.
+
+Öntanımlı olarak konsola sadece `INFO` logları düşecektir. Eğer yeterince geek iseniz
+ve debug çıktısı görmek istiyorsanız komutun sonuna `-L DEBUG` ekleyerek bu çıktıyı
+görebilirsiniz.
+
+### Ekşisözlük
+`scrapy crawl eksisozluk -a baslik="https://eksisozluk.com/recep-tayyip-erdogan--95281"`
+
+### İtüsözlük
+`scrapy crawl itusozluk -a baslik="https://www.itusozluk.com/goster.php/recep+tayyip+erdo%F0an"`
+
+### Uludağsözlük
+`scrapy crawl itusozluk -a baslik="www.uludagsozluk.com/k/recep-tayyip-erdoğan"`
+

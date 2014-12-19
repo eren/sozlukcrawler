@@ -143,5 +143,5 @@ görebilirsiniz.
 `scrapy crawl itusozluk -a baslik="https://www.itusozluk.com/goster.php/recep+tayyip+erdo%F0an"`
 
 ### Uludağsözlük
-`scrapy crawl itusozluk -a baslik="www.uludagsozluk.com/k/recep-tayyip-erdoğan"`
+`scrapy crawl uludagsozluk -a baslik="www.uludagsozluk.com/k/recep-tayyip-erdoğan"`
 

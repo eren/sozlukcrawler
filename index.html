@@ -98,9 +98,11 @@
         <p>Proje sayfasında kurulum için teknik açıklamalar yer almakta. Lütfen kurulum için <a href="http://github.com/eren/sozlukcrawler">proje sayfasını</a> ziyaret edin.</p>
 
         <h3>Kullanım</h3>
-        <p class="text-justify">
-            Projenin kurulumunu başarıyla gerçekleştirdikten sonra aşağıdaki komutlar ile çeşitli sözlüklerden başlıkları çekebilirsiniz. Ekşisözlük için;
-
+        <p>
+            Ekşi, İtü veya Uludağsözlükte ilgilendiğiniz başlığın kök linkini (sayfalama olmaksızın, birinci sayfa) crawler'a vermeniz yeterlidir. Aşağıdaki komutlar ile crawler'ı başlatabilirsiniz.
+        </p>
+        <p>
+            Öntanımlı olarak konsola sadece <strong>INFO</strong> logları düşecektir. Eğer yeterince geek iseniz ve debug çıktısı görmek istiyorsanız komutun sonuna <strong>-L DEBUG</strong> ekleyerek bu çıktıyı görebilirsiniz.
         </p>
         <p>
             <code>
@@ -108,19 +110,13 @@
             </code>
         </p>
         <p>
-            İtüsözlük ve uludağsözlük için de aşağıdaki komutu kullanarak başlıkları getirebilirsiniz.
-        </p>
-        <p>
             <code>
-                scrapy crawl itusozluk -a baslik=''
+                scrapy crawl itusozluk -a baslik="https://www.itusozluk.com/goster.php/recep+tayyip+erdo%F0an"
             </code>
             <br/>
             <code>
-                scrapy crawl uludagsozluk -a baslik=''
+                scrapy crawl uludagsozluk -a baslik="www.uludagsozluk.com/k/recep-tayyip-erdoğan"
             </code>
-        </p>
-        <p class="text-justify">
-            Eğer debug çıktısı görmek istiyorsanız <em>-L DEBUG</em> parametresini eklemeniz yeterlidir.
         </p>
 
         <h3>İletişim</h3>

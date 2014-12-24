@@ -117,7 +117,7 @@ Bunu `pip install psycopg2`ile kurunuz.
 
 ```
 DATABASE = {
-    'drivername': 'psycopg2',
+    'drivername': 'postgresql+psycopg2',
     'host': 'localhost',
     'port': '5432',
     'username': 'sozlukcrawl',

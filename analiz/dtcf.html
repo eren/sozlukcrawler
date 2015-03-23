@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ekşisözlük, itüsözlük, uludağsözlük gibi popüler sözlüklerden belirtilen başlıklardaki tüm girdileri alıp, veritabanına yazan crawler">
+    <meta name="author" content=" Eren Türkay">
+    <meta name="keywords" content="ekşisözlük, uludağsözlük, itüsözlük, crawl, scrape, analiz, eren türkay">
+
+        <meta property="og:title" content="Analiz - Sözlük Crawler" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="Ekşisözlük, itüsözlük, uludağsözlük gibi sözlükerden alınan veriler üzerine yapılan analiz." />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@erenturkay" />
+        <meta name="twitter:title" content="Sözlük Crawler" />
+        <meta name="twitter:description" content="Ekşisözlük, itüsözlük, uludağsözlük gibi sözlükerden alınan veriler üzerine yapılan analiz." />
+        <meta name="twitter:url" content="http://erenturkay.com/sozlukcrawler" />
+
+
+    <title>Sözlük Crawler - Analiz - Eren Türkay</title>
+
+    <link rel="author" href="http://www.erenturkay.com/" />
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.paper.min.css" rel="stylesheet">
+
+      <style>
+          p {
+              font-size: 1.2em;
+              line-height: 1.4em;
+          }
+      </style>
+  </head>
+
+  <body>
+
+    <div class="container col-md-10 col-md-offset-1">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../">Sözlük Crawler</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="../">Ana Sayfa</a></li>
+              <li class="active"><a href="#">Analiz</a></li>
+              <li><a href="http://erenturkay.com/">Hakkımda</a></li>
+            </ul>
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Ekşisözlük Analizi</h1>
+                <p>
+                    Bu sayfa Ankara Üniversitesi Dil ve Tarih-Coğrafya Fakültesi için özel olarak hazırlanmıştır. Ekşisözlükte yer alan
+                    "Türkiye'den Siktir Olup Gitmek" başlığına aylara göre kaç adet girdi yazıldığını içermektedir. Fare imlecini
+                    noktaların üzerine getirerek hangi ayda kaç adet girdi yazıldığnı görebilirsiniz. Bu sayfayı üreten
+                    bütün kodlara projenin anasayfasından ulaşabilirsiniz.
+                </p>
+                <p>
+                    Buradaki veriler <b>23 Mart 2015</b> günü saat <b>20:50</b>'de Ekşisözlükten alınmış ve çizdirilmiştir.
+                </p>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <h3>Türkiye'den Siktir Olup Gitmek Başlığı</h3>
+            <hr/>
+            <div class="col-md-12" id="trden_gitmek_ay"></div>
+        </div>
+
+        <footer>
+        <div class="row">
+          <div class="col-lg-12">
+              <hr/>
+
+              <p>Sözlük Crawler kodu (bu sayfa da dahil olmak üzere) GPL-2 lisanslıdır.</p>
+            <p>Theme by <a href="http://thomaspark.me" rel="nofollow">Thomas Park</a>. Contact him at <a href="mailto:thomas@bootswatch.com">thomas@bootswatch.com</a>.</p>
+            <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+
+          </div>
+        </div>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+    <script src="js/trden_gitmek_dtcf.js"></script>
+  </body>
+</html>

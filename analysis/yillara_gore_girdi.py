@@ -49,7 +49,10 @@ class Analysis(object):
                 sql = text("SELECT COUNT(girdi_id) FROM girdiler WHERE source=:s AND baslik_id=:b AND YEAR(datetime)=:y AND MONTH(datetime)=:m")
                 result = session.execute(sql, params=dict(s=self.source, b=self.baslik_id, y=year, m=month)).fetchone()
 
-                out.append({'year': year, 'month': month, 'number_of_entires': int(result[0])})
+                # Highcharts ile gosterirken Date.UTF 0 indexinden basliyor. Bu
+                # yuzden -1 yazmak durumundayiz. Ornegin 2012 yilinin 0. ayi
+                # highchart ile cizdirildiginde 2012-1 seklinde gozukmekte
+                out.append({'year': year, 'month': month-1, 'number_of_entires': int(result[0])})
 
         return out
 

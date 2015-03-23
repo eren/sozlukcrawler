@@ -36,9 +36,23 @@ class Analysis(object):
             sql = text("SELECT COUNT(girdi_id) FROM girdiler WHERE source=:s AND baslik_id=:b AND YEAR(datetime)=:y")
             result = session.execute(sql, params=dict(s=self.source, b=self.baslik_id, y=year)).fetchone()
 
-            out.append((year, int(result[0])))
+            out.append({'year': year, 'month': 1, 'number_of_entires': int(result[0])})
 
         return out
+
+    def entry_numbers_in_months(self):
+        years = self.get_distinct_years()
+
+        out = []
+        for year in years:
+            for month in xrange(1, 13):
+                sql = text("SELECT COUNT(girdi_id) FROM girdiler WHERE source=:s AND baslik_id=:b AND YEAR(datetime)=:y AND MONTH(datetime)=:m")
+                result = session.execute(sql, params=dict(s=self.source, b=self.baslik_id, y=year, m=month)).fetchone()
+
+                out.append({'year': year, 'month': month, 'number_of_entires': int(result[0])})
+
+        return out
+
 
     def total_entries(self):
         sql = text("SELECT COUNT(*) FROM girdiler WHERE source=:s AND baslik_id=:b")
@@ -51,8 +65,8 @@ class Analysis(object):
 
     def to_js(self, result):
         out = '// %s icin yillara gore girdi dagilimi\n' % self.source
-        for year, number in result:
-            out += ("[Date.UTC(%s, 1), %s],\n" % (year, number))
+        for item in result:
+            out += ("[Date.UTC(%s, %s), %s],\n" % (item['year'], item['month'], item['number_of_entires']))
 
         return out
 
@@ -86,6 +100,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     analysis = Analysis(args.source, args.baslik_id)
-    r = analysis.entry_numbers_in_years()
-    print analysis.to_js(r)
-    print analysis.total_entries()
+    m = analysis.entry_numbers_in_months()
+    print analysis.to_js(m)
+
+    # r = analysis.entry_numbers_in_years()
+    # print analysis.to_js(r)
+    # print analysis.total_entries()

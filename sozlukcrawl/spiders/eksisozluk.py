@@ -22,19 +22,19 @@ class EksisozlukBaslikSpider(GenericSozlukSpider):
     def parse(self, response):
         self.log("PARSING: %s" % response.request.url, level=log.INFO)
 
-        items_to_scrape = response.xpath('//*[@id="entry-list"]/li/article')
+        items_to_scrape = response.xpath('//*[@id="topic"]/ul[@id="entry-list"]/li')
         if len(items_to_scrape) == 0:
             self.log("!!! No item to parse found. It may indicate a problem with HTML !!!",
                      level=log.ERROR)
             raise CloseSpider('no_item_found')
 
         for sel in items_to_scrape:
-            girdi_id = sel.xpath('./footer/@data-id').extract()[0]
+            girdi_id = sel.xpath('./@data-id').extract()[0]
             baslik_id = response.xpath('//*[@id="title"]/a/@href').re(r'--(\d*)')[0]
             baslik = response.xpath('//*[@id="title"]/a/span/text()').extract()[0]
-            date = sel.xpath('./footer/div[1]/span/a/time/text()').re(r'\d{2}[.]\d{2}[.]\d{4} \d{2}[:]\d{2}')[0]
+            date = sel.xpath('./footer/div[@class="info"]/a[@class="entry-date permalink"]/text()').re(r'\d{2}[.]\d{2}[.]\d{4} \d{2}[:]\d{2}')[0]
             text = sel.xpath('string(./div)').extract()[0]
-            nick = sel.xpath('./footer/div[1]/address/a/span/text()').extract()[0]
+            nick = sel.xpath('./footer/div[@class="info"]/a[@class="entry-author"]/text()').extract()[0]
 
             item = Girdi()
             item['source'] = self.name

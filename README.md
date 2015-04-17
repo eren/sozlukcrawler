@@ -31,7 +31,7 @@ Anahtar kelimeler: sözlük, crawl, scrape, ekşi, ekşisözlük, itüsözlük
 ## Desteklenen Sözlükler
 * [Ekşisözlük](https://www.eksisozluk.com/)
 
-## Desteklenmiş Ancak Şu anda Çalışmay Sözlükler
+## Desteklenmiş Ancak Şu anda Çalışmayan Sözlükler
 İtüsözlük tamamiyle yeni bir tasarıma geçti ve HTML'i doğal olarak değişti.
 Uludağ sözlük de crawler'in yazım tarihinden bu yana değişmiş görünüyor ve
 şu anki tarih itibariyle (17 Nisan 2015) çalışmıyor. Bu veya diğer sözlükler

@@ -17,10 +17,10 @@
 #
 # SQLite Ayari
 # ============
-# DATABASE = {
-#     'drivername': 'sqlite',
-#     'database': 'db.sqlite'
-# }
+DATABASE = {
+    'drivername': 'sqlite',
+    'database': 'db.sqlite'
+}
 #
 #
 # PostgreSQL ve MySQL kullanmak istiyorsaniz ne yaptiginizi bildiginizi varsayarak veritabani ve
@@ -39,14 +39,15 @@
 
 
 # MySQL
-DATABASE = {
-    'drivername': 'mysql',
-    'host': 'localhost',
-    'port': '3306',
-    'username': 'sozlukcrawl',
-    'password': 'sozlukcrawl',
-    'database': 'sozlukcrawl'
-}
+# =====
+# DATABASE = {
+    # 'drivername': 'mysql',
+    # 'host': 'localhost',
+    # 'port': '3306',
+    # 'username': 'sozlukcrawl',
+    # 'password': 'sozlukcrawl',
+    # 'database': 'sozlukcrawl'
+# }
 
 LOG_ENABLED = True
 LOG_LEVEL = 'INFO'

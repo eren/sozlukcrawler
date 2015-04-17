@@ -54,18 +54,26 @@ Sisteminizde öncesinde virtualenv paketinin olduğundan emin olun. Eğer yoksa 
 için bir sonraki bölüme bakın.
 
 
+Not: Buradaki kurulum sadece Ubuntu 14.04 ile test edilmiştir. Ubuntunun diğer
+sürümleri ile çalışma olasılığı yüksektir ancak diğer dağıtımlarda paket
+isimleri değişebilir.
+
+
 ```
+sudo apt-get install build-essential python-dev libffi-dev libmysqlclient-dev \
+                     libssl-dev libxml2-dev libxslt1-dev
+
 # ev dizinine gir
 cd ~
 
 # virtual environment olustur
-virtualenv sozlukcrawler.env
+virtualenv -p python2.7 sozlukcrawler.env
 cd sozlukcrawler.env
 
 # aktive et
 source bin/activate
 
-# projeyi getir 
+# projeyi getir
 git clone https://github.com/eren/sozlukcrawler
 cd sozlukcrawler
 

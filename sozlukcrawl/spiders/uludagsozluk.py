@@ -3,6 +3,7 @@ __author__ = 'Eren Turkay <turkay.eren@gmail.com>'
 
 from scrapy import log
 from scrapy.http import Request
+from scrapy.exceptions import CloseSpider
 
 from datetime import datetime
 from urlparse import urlsplit
@@ -22,7 +23,14 @@ class ItusozlukBaslikSpider(GenericSozlukSpider):
 
     def parse(self, response):
         self.log("PARSING: %s" % response.request.url, level=log.INFO)
-        for sel in response.css('ol.entry-list').xpath('./li'):
+
+        items_to_scrape = response.xpath('//*[@id="entry-list"]/li/article')
+        if len(items_to_scrape) == 0:
+            self.log("!!! No item to parse found. It may indicate a problem with HTML !!!",
+                     level=log.ERROR)
+            raise CloseSpider('no_item_found')
+
+        for sel in items_to_scrape:
             girdi_id = sel.css('span.voting').css('a.entryid_a').xpath('./span/text()').re(r'#(\d*)')[0]
             baslik_id = response.xpath('//*[@id="main"]/div/div[1]/div[1]/div/ul/li[1]/ul/li/a/@onclick').re("'(\d*)'")[0]
             baslik = response.css('h1.title').xpath('./a/text()').extract()[0]

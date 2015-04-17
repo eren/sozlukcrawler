@@ -85,9 +85,11 @@ Kurulum yaptıktan sonra `sozlukcrawl/settings.py` dosyasından proje ayarların
 
 ## Veritabanı Ayarları
 Proje ORM olarak SQLAlchemy kullanmakta, doğal olarak SQLAlchemy'nin desteklediği bütün
-veritabanları crawl edilen girdileri saklamak için tutulabilir. Geliştirme ortamında MySQL
-öntanımlı olarak kullanılmakta ancak isteğinize göre aşağıdaki veritabanlarını kullanabilirsiniz.
+veritabanları crawl edilen girdileri saklamak için tutulabilir.
 
+Hızlı bir şekilde kullanmaya başlamanız için öntanımlı olarak sqlite
+kullanılıyor. Başka veritabanları kullanmak için öncelikle veritabanı
+ayarlarınızı yapın ve gerekli alanları düzenleyin.
 
 ### SQLite
 Herhangi bir veritabanı sunucusu kurmak istemiyor ve girdileri dosyaya yazmak istiyorsanız
